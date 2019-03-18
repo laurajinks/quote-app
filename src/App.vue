@@ -27,10 +27,10 @@ export default {
   },
   methods: {
     addQuote(quote) {
-      if (this.quotes.length < 10) {
+      if (this.quotes.length < this.maxQuotes) {
         this.quotes.push(quote);
       } else {
-        alert(
+        return alert(
           "You can only have 10 quotes! Please delete a quote before adding a new one."
         );
       }
