@@ -1,7 +1,7 @@
 <template>
   <div class="col-sm6 col-md4 col-lg-3">
-    <div class="panel panel-default">
-      <h2 class="quote">{{ quote }}</h2>
+    <div class="panel panel-default quote">
+      <h2>{{ quote }}</h2>
     </div>
   </div>
 </template>
