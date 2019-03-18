@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header :maxQuotes="maxQuotes" :quoteCount="quotes.length"/>
     <NewQuote @quoteAdded="addQuote"/>
     <QuoteGrid :quotes="quotes" @quoteDeleted="deleteQuote"/>
     <div class="row">
@@ -11,12 +12,13 @@
 </template>
 
 <script>
+import Header from "./components/Header";
 import NewQuote from "./components/NewQuote";
 import QuoteGrid from "./components/QuoteGrid";
 
 export default {
   name: "app",
-  components: { NewQuote, QuoteGrid },
+  components: { Header, NewQuote, QuoteGrid },
   data() {
     return {
       quotes: ["Just a Test Quote"],
@@ -27,6 +29,10 @@ export default {
     addQuote(quote) {
       if (this.quotes.length < 10) {
         this.quotes.push(quote);
+      } else {
+        alert(
+          "You can only have 10 quotes! Please delete a quote before adding a new one."
+        );
       }
     },
     deleteQuote(index) {
